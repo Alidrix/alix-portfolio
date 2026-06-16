@@ -4,7 +4,7 @@ import { config } from "@/data/config";
 import { Resend } from "resend";
 import { z } from "zod";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+export const dynamic = "force-dynamic";
 
 type RateLimitEntry = {
   count: number;
@@ -34,15 +34,9 @@ function isRateLimited(ip: string): boolean {
 }
 
 const Email = z.object({
-  fullName: z
-    .string()
-    .min(2, "Le nom complet est invalide."),
-  email: z
-    .string()
-    .email({ message: "L'adresse email est invalide." }),
-  message: z
-    .string()
-    .min(10, "Le message est trop court."),
+  fullName: z.string().min(2, "Le nom complet est invalide."),
+  email: z.string().email({ message: "L'adresse email est invalide." }),
+  message: z.string().min(10, "Le message est trop court."),
 });
 
 export async function POST(req: Request) {
@@ -59,13 +53,15 @@ export async function POST(req: Request) {
       );
     }
 
-    if (!process.env.RESEND_API_KEY) {
+    const resendApiKey = process.env.RESEND_API_KEY;
+
+    if (!resendApiKey) {
       return Response.json(
         {
           error:
-            "RESEND_API_KEY n'est pas configurée. L'envoi du message est désactivé.",
+            "RESEND_API_KEY n'est pas configurée. Le formulaire de contact est désactivé pour le moment.",
         },
-        { status: 500 }
+        { status: 503 }
       );
     }
 
@@ -85,6 +81,8 @@ export async function POST(req: Request) {
         { status: 400 }
       );
     }
+
+    const resend = new Resend(resendApiKey);
 
     const fromAddress =
       process.env.RESEND_FROM_EMAIL ??
