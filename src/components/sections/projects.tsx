@@ -46,6 +46,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
               src={project.src}
               alt={project.title}
               fill
+              unoptimized={project.src.endsWith(".svg")}
               className="object-cover transition duration-500 group-hover:scale-105"
             />
           </div>
@@ -134,6 +135,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
                         src={imagePath}
                         alt={`${project.title} — capture`}
                         fill
+                        unoptimized={imagePath.endsWith(".svg")}
                         className="object-cover"
                       />
                     </div>
