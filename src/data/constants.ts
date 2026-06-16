@@ -1,31 +1,28 @@
-// thoda zada ts ho gya idhar
 export enum SkillNames {
-  JS = "js",
-  TS = "ts",
-  HTML = "html",
-  CSS = "css",
-  REACT = "react",
-  VUE = "vue",
-  NEXTJS = "nextjs",
-  TAILWIND = "tailwind",
-  NODEJS = "nodejs",
-  EXPRESS = "express",
-  POSTGRES = "postgres",
-  MONGODB = "mongodb",
-  GIT = "git",
-  GITHUB = "github",
-  PRETTIER = "prettier",
-  NPM = "npm",
-  FIREBASE = "firebase",
-  WORDPRESS = "wordpress",
   LINUX = "linux",
+  WINDOWS = "windows",
+  ACTIVE_DIRECTORY = "active_directory",
+  DNS_DHCP = "dns_dhcp",
   DOCKER = "docker",
+  DOCKER_COMPOSE = "docker_compose",
+  WIREGUARD = "wireguard",
+  OPENVPN = "openvpn",
+  FORTIGATE = "fortigate",
+  VMWARE = "vmware",
+  PROXMOX = "proxmox",
   NGINX = "nginx",
-  AWS = "aws",
-  GCP = "gcp",
-  VIM = "vim",
+  NESSUS = "nessus",
+  BURP = "burp",
+  BLOODHOUND = "bloodhound",
+  EXEGOL = "exegol",
+  PASSBOLT = "passbolt",
+  SENTINELONE = "sentinelone",
+  INFOBLOX = "infoblox",
+  BASH = "bash",
+  GIT = "git",
   VERCEL = "vercel",
 }
+
 export type Skill = {
   id: number;
   name: string;
@@ -34,214 +31,237 @@ export type Skill = {
   color: string;
   icon: string;
 };
+
+const svgIcon = (label: string, color: string) =>
+  `data:image/svg+xml;utf8,${encodeURIComponent(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+      <rect width="120" height="120" rx="26" fill="#0f172a"/>
+      <circle cx="60" cy="60" r="38" fill="${color}" opacity="0.16"/>
+      <text x="60" y="68" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" fill="${color}">
+        ${label}
+      </text>
+    </svg>
+  `)}`;
+
 export const SKILLS: Record<SkillNames, Skill> = {
-  [SkillNames.JS]: {
-    id: 1,
-    name: "js",
-    label: "JavaScript",
-    shortDescription: "yeeting code into the DOM since '95, no cap! 💯🚀",
-    color: "#f0db4f",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-  },
-  [SkillNames.TS]: {
-    id: 2,
-    name: "ts",
-    label: "TypeScript",
-    shortDescription:
-      "JavaScript's overachieving cousin who's always flexing 💯🔒",
-    color: "#007acc",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
-  },
-  [SkillNames.HTML]: {
-    id: 3,
-    name: "html",
-    label: "HTML",
-    shortDescription: "the internet's granddad,  still bussin' fr fr! 💀🔥",
-    color: "#e34c26",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-  },
-  [SkillNames.CSS]: {
-    id: 4,
-    name: "css",
-    label: "CSS",
-    shortDescription: "styling with the ultimate drip, no cap 💁‍♂️🔥",
-    color: "#563d7c",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-  },
-  [SkillNames.REACT]: {
-    id: 5,
-    name: "react",
-    label: "React",
-    shortDescription: `"use using" 
-using use = useUsing("use")`,
-    color: "#61dafb",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
-  },
-  [SkillNames.VUE]: {
-    id: 6,
-    name: "vue",
-    label: "Vue",
-    shortDescription:
-      "the chill pill for your frontend, it hits different! 🟢😌",
-    color: "#41b883",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg",
-  },
-  [SkillNames.NEXTJS]: {
-    id: 7,
-    name: "nextjs",
-    label: "Next.js",
-    shortDescription:
-      "the drama queen of front-end frameworks, and we stan! 👑📜",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-  },
-  [SkillNames.TAILWIND]: {
-    id: 8,
-    name: "tailwind",
-    label: "Tailwind",
-    shortDescription: "utility classes hitting different fr fr 🌪️🔥",
-    color: "#38bdf8",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg",
-  },
-  [SkillNames.NODEJS]: {
-    id: 9,
-    name: "nodejs",
-    label: "Node.js",
-    shortDescription: "JavaScript said 'sike, I'm backend now', deadass! 🔙🔚",
-    color: "#6cc24a",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-  },
-  [SkillNames.EXPRESS]: {
-    id: 10,
-    name: "express",
-    label: "Express",
-    shortDescription: "middlewares go dummy hard, no cap! 🚂💨",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
-  },
-  [SkillNames.POSTGRES]: {
-    id: 11,
-    name: "postgres",
-    label: "PostgreSQL",
-    shortDescription: "SQL but make it fashion, purr 💅🐘",
-    color: "#336791",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-  },
-  [SkillNames.MONGODB]: {
-    id: 12,
-    name: "mongodb",
-    label: "MongoDB",
-    shortDescription: "flexin' with that NoSQL drip, respectfully! 💪🍃",
-    color: "#336791",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-  },
-  [SkillNames.GIT]: {
-    id: 13,
-    name: "git",
-    label: "Git",
-    shortDescription: "the code's personal bodyguard, no cap! 🕵️‍♂️🔄",
-    color: "#f1502f",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-  },
-  [SkillNames.GITHUB]: {
-    id: 14,
-    name: "github",
-    label: "GitHub",
-    shortDescription: "sliding into those pull requests, IYKYK! 🐙",
-    color: "#000000",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-  },
-  [SkillNames.PRETTIER]: {
-    id: 15,
-    name: "prettier",
-    label: "Prettier",
-    shortDescription: "making your code not a whole mess, thank u next 🧹✨",
-    color: "#f7b93a",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prettier/prettier-original.svg",
-  },
-  [SkillNames.NPM]: {
-    id: 16,
-    name: "npm",
-    label: "NPM",
-    shortDescription: "package manager said 'I gotchu fam', period! 📦💯",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg",
-  },
-  [SkillNames.FIREBASE]: {
-    id: 17,
-    name: "firebase",
-    label: "Firebase",
-    shortDescription:
-      "your app's ultimate wingman, but watch out, vendor lock-in vibes! 🔥👌",
-    color: "#ffca28",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
-  },
-  [SkillNames.WORDPRESS]: {
-    id: 18,
-    name: "wordpress",
-    label: "WordPress",
-    shortDescription: "the grandpa of CMS, still rocking that cane 🧓👴",
-    color: "#007acc",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg",
-  },
   [SkillNames.LINUX]: {
-    id: 19,
+    id: 1,
     name: "linux",
     label: "Linux",
-    shortDescription: "where 'chmod 777' is the ultimate flex 🔓🙌",
-    color: "#fff",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+    shortDescription:
+      "Administration, durcissement, services système, supervision et diagnostic.",
+    color: "#ffffff",
+    icon: svgIcon("LX", "#ffffff"),
   },
+
+  [SkillNames.WINDOWS]: {
+    id: 2,
+    name: "windows",
+    label: "Windows Server",
+    shortDescription:
+      "Administration Windows Server, services d'entreprise et environnements hybrides.",
+    color: "#60a5fa",
+    icon: svgIcon("WIN", "#60a5fa"),
+  },
+
+  [SkillNames.ACTIVE_DIRECTORY]: {
+    id: 3,
+    name: "active-directory",
+    label: "Active Directory",
+    shortDescription:
+      "Comptes, groupes, droits, GPO, cartographie et analyse des chemins d'attaque.",
+    color: "#38bdf8",
+    icon: svgIcon("AD", "#38bdf8"),
+  },
+
+  [SkillNames.DNS_DHCP]: {
+    id: 4,
+    name: "dns-dhcp",
+    label: "DNS / DHCP",
+    shortDescription:
+      "Compréhension des flux, résolution de noms, adressage et dépendances réseau.",
+    color: "#22c55e",
+    icon: svgIcon("DNS", "#22c55e"),
+  },
+
   [SkillNames.DOCKER]: {
-    id: 20,
+    id: 5,
     name: "docker",
     label: "Docker",
-    shortDescription: "The best containerization! 🐳🔥",
+    shortDescription:
+      "Conteneurisation, déploiement applicatif, isolation et maintien en condition.",
     color: "#2496ed",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
+    icon: svgIcon("DK", "#2496ed"),
   },
+
+  [SkillNames.DOCKER_COMPOSE]: {
+    id: 6,
+    name: "docker-compose",
+    label: "Docker Compose",
+    shortDescription:
+      "Orchestration locale de services, stacks applicatives et environnements reproductibles.",
+    color: "#2563eb",
+    icon: svgIcon("DC", "#2563eb"),
+  },
+
+  [SkillNames.WIREGUARD]: {
+    id: 7,
+    name: "wireguard",
+    label: "WireGuard",
+    shortDescription:
+      "Tunnels VPN modernes, accès distant sécurisé et liaisons site-à-site.",
+    color: "#88171a",
+    icon: svgIcon("WG", "#ef4444"),
+  },
+
+  [SkillNames.OPENVPN]: {
+    id: 8,
+    name: "openvpn",
+    label: "OpenVPN",
+    shortDescription:
+      "Déploiement d'accès VPN, certificats, routage et sécurité des connexions distantes.",
+    color: "#ea7e20",
+    icon: svgIcon("VPN", "#fb923c"),
+  },
+
+  [SkillNames.FORTIGATE]: {
+    id: 9,
+    name: "fortigate",
+    label: "FortiGate",
+    shortDescription:
+      "Filtrage, VPN, segmentation, haute disponibilité, SD-WAN et politiques de sécurité.",
+    color: "#ef4444",
+    icon: svgIcon("FGT", "#ef4444"),
+  },
+
+  [SkillNames.VMWARE]: {
+    id: 10,
+    name: "vmware",
+    label: "VMware",
+    shortDescription:
+      "Virtualisation, exploitation d'environnements serveur et continuité de service.",
+    color: "#f97316",
+    icon: svgIcon("VM", "#f97316"),
+  },
+
+  [SkillNames.PROXMOX]: {
+    id: 11,
+    name: "proxmox",
+    label: "Proxmox",
+    shortDescription:
+      "Virtualisation open source, laboratoires techniques, snapshots et environnements de test.",
+    color: "#e57000",
+    icon: svgIcon("PX", "#fb923c"),
+  },
+
   [SkillNames.NGINX]: {
-    id: 21,
+    id: 12,
     name: "nginx",
-    label: "NginX",
-    shortDescription: "reverse proxy go zoom zoom, sheesh! 🚗💨",
-    color: "#008000",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg",
-  },
-  [SkillNames.AWS]: {
-    id: 22,
-    name: "aws",
-    label: "AWS",
+    label: "Nginx",
     shortDescription:
-      "always extra, making everything more complicated, period! 🌐👨‍💻",
-    color: "#ff9900",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg",
+      "Reverse-proxy, exposition de services, TLS, routage applicatif et durcissement.",
+    color: "#22c55e",
+    icon: svgIcon("NX", "#22c55e"),
   },
-  [SkillNames.GCP]: {
-    id: 25,
-    name: "gcp",
-    label: "Google Cloud",
+
+  [SkillNames.NESSUS]: {
+    id: 13,
+    name: "nessus",
+    label: "Nessus",
     shortDescription:
-      "cloud computing but make it Google vibes, living rent free! ☁️🔥",
-    color: "#4285f4",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
+      "Scan de vulnérabilités, qualification des risques et priorisation des remédiations.",
+    color: "#0ea5e9",
+    icon: svgIcon("NS", "#0ea5e9"),
   },
-  [SkillNames.VIM]: {
-    id: 23,
-    name: "vim",
-    label: "Vim",
-    shortDescription: "exit? In this economy? Ight, imma head out! 🚪🏃",
-    color: "#e34c26",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vim/vim-original.svg",
+
+  [SkillNames.BURP]: {
+    id: 14,
+    name: "burp-suite",
+    label: "Burp Suite",
+    shortDescription:
+      "Analyse web, interception HTTP, validation de vulnérabilités et preuves techniques.",
+    color: "#f97316",
+    icon: svgIcon("BP", "#f97316"),
   },
+
+  [SkillNames.BLOODHOUND]: {
+    id: 15,
+    name: "bloodhound",
+    label: "BloodHound",
+    shortDescription:
+      "Analyse Active Directory, chemins d'attaque, relations et privilèges.",
+    color: "#dc2626",
+    icon: svgIcon("BH", "#ef4444"),
+  },
+
+  [SkillNames.EXEGOL]: {
+    id: 16,
+    name: "exegol",
+    label: "Exegol",
+    shortDescription:
+      "Environnement de pentest conteneurisé, outillage offensif et reproductibilité.",
+    color: "#a855f7",
+    icon: svgIcon("EX", "#a855f7"),
+  },
+
+  [SkillNames.PASSBOLT]: {
+    id: 17,
+    name: "passbolt",
+    label: "Passbolt",
+    shortDescription:
+      "Gestionnaire de mots de passe collaboratif, auto-hébergement et continuité de service.",
+    color: "#22c55e",
+    icon: svgIcon("PB", "#22c55e"),
+  },
+
+  [SkillNames.SENTINELONE]: {
+    id: 18,
+    name: "sentinelone",
+    label: "SentinelOne",
+    shortDescription:
+      "Culture EDR, protection endpoint, détection et réponse aux menaces.",
+    color: "#7c3aed",
+    icon: svgIcon("S1", "#a78bfa"),
+  },
+
+  [SkillNames.INFOBLOX]: {
+    id: 19,
+    name: "infoblox",
+    label: "Infoblox",
+    shortDescription:
+      "DDI, DNS, DHCP, IPAM, gouvernance réseau et visibilité des ressources.",
+    color: "#3b82f6",
+    icon: svgIcon("IB", "#60a5fa"),
+  },
+
+  [SkillNames.BASH]: {
+    id: 20,
+    name: "bash",
+    label: "Bash",
+    shortDescription:
+      "Scripts d'automatisation, diagnostics système, sauvegardes et exploitation Linux.",
+    color: "#84cc16",
+    icon: svgIcon("SH", "#84cc16"),
+  },
+
+  [SkillNames.GIT]: {
+    id: 21,
+    name: "git",
+    label: "Git",
+    shortDescription:
+      "Versioning, branches, suivi des changements et gestion propre du code.",
+    color: "#f1502f",
+    icon: svgIcon("GIT", "#f97316"),
+  },
+
   [SkillNames.VERCEL]: {
-    id: 24,
+    id: 22,
     name: "vercel",
     label: "Vercel",
     shortDescription:
-      "The triangle compony, helps you deploy and go touch grass! 🚀🌿",
-    color: "#6cc24a",
-    icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+      "Déploiement web, preview deployments et publication de projets front-end.",
+    color: "#ffffff",
+    icon: svgIcon("VC", "#ffffff"),
   },
 };
 
@@ -258,66 +278,93 @@ export type Experience = {
 export const EXPERIENCE: Experience[] = [
   {
     id: 1,
-    startDate: "Dec 2024",
-    endDate: "Present",
-    title: "Full Stack Developer",
-    company: "OmniNexus Sdn Bhd",
+    startDate: "Nov. 2025",
+    endDate: "Aujourd'hui",
+    title: "Chargé de mission en cybersécurité",
+    company: "CCIN — C'Chartres Innovations Numériques",
     description: [
-      "Built a custom image editor from scratch, cutting $4.8k/year in SaaS costs.",
-      "Architected async job queues processing 1k+ AI tasks daily with bulletproof reliability.",
-      "Optimized media delivery pipeline, slashing asset load times by 40%.",
-      "Shipped high-impact features end-to-end from requirements to production.",
+      "Développement d'une activité cybersécurité autour de l'audit, du pentest, de la sensibilisation et de l'accompagnement technique.",
+      "Conception d'offres et de supports pour des missions de test d'intrusion interne, externe et d'analyse de vulnérabilités.",
+      "Mise en place d'un projet Passbolt CE souverain avec Docker, MariaDB, Traefik, réplication, sauvegardes chiffrées et logique de failover.",
+      "Production de livrables techniques orientés remédiation : constats, preuves, impacts, priorisation et recommandations actionnables.",
     ],
     skills: [
-      SkillNames.NEXTJS,
-      SkillNames.TS,
-      SkillNames.REACT,
-      SkillNames.NODEJS,
-      SkillNames.POSTGRES,
-      SkillNames.MONGODB,
+      SkillNames.LINUX,
       SkillNames.DOCKER,
-      SkillNames.GCP,
+      SkillNames.DOCKER_COMPOSE,
+      SkillNames.PASSBOLT,
+      SkillNames.WIREGUARD,
+      SkillNames.NGINX,
+      SkillNames.NESSUS,
+      SkillNames.BURP,
+      SkillNames.BASH,
+      SkillNames.GIT,
     ],
   },
+
   {
     id: 2,
-    startDate: "Apr 2022",
-    endDate: "Dec 2024",
-    title: "Freelance Full Stack Developer",
-    company: "Self-employed",
+    startDate: "Sept. 2022",
+    endDate: "Sept. 2025",
+    title: "Alternant cybersécurité, infrastructure & réseau",
+    company: "Exclusive Networks",
     description: [
-      "Transformed chaotic Excel sheets into polished internal tools for various clients.",
-      "Shipped dashboards and custom CMS platforms tailored to each client's workflow.",
-      "Automated repetitive processes, improving efficiency and reducing human error.",
-      "Focused on clean, maintainable code and interfaces that users actually enjoy.",
+      "Participation à des projets liés à l'infrastructure, au réseau et à la cybersécurité dans un environnement professionnel orienté solutions de sécurité.",
+      "Montée en compétence sur les environnements système, réseau, virtualisation, VPN, firewalling, EDR et services d'entreprise.",
+      "Travaux autour d'Active Directory, DNS, DHCP, Fortinet, SentinelOne, Infoblox et architectures sécurisées.",
+      "Développement d'une culture offensive et défensive : compréhension des chemins d'attaque, durcissement, preuves techniques et restitution claire.",
     ],
     skills: [
-      SkillNames.REACT,
-      SkillNames.VUE,
-      SkillNames.NODEJS,
-      SkillNames.EXPRESS,
-      SkillNames.MONGODB,
-      SkillNames.POSTGRES,
-      SkillNames.TAILWIND,
-      SkillNames.WORDPRESS,
+      SkillNames.ACTIVE_DIRECTORY,
+      SkillNames.DNS_DHCP,
+      SkillNames.FORTIGATE,
+      SkillNames.SENTINELONE,
+      SkillNames.INFOBLOX,
+      SkillNames.VMWARE,
+      SkillNames.PROXMOX,
+      SkillNames.WINDOWS,
+      SkillNames.LINUX,
+    ],
+  },
+
+  {
+    id: 3,
+    startDate: "2024",
+    endDate: "2025",
+    title: "Projet RNCP7 — Infrastructure portable de pentest interne",
+    company: "Projet de mémoire cybersécurité",
+    description: [
+      "Conception d'une infrastructure portable et sécurisée permettant de réaliser des tests de sécurité internes à distance.",
+      "Mise en place d'un système connectable via VPN au réseau client afin d'exécuter des outils de test dans un environnement maîtrisé.",
+      "Travail sur l'isolation, le routage, l'administration Linux, Docker, l'outillage pentest et la reproductibilité des environnements.",
+      "Objectif : faciliter les missions internes tout en gardant une approche propre, traçable et exploitable par les équipes techniques.",
+    ],
+    skills: [
+      SkillNames.LINUX,
+      SkillNames.DOCKER,
+      SkillNames.WIREGUARD,
+      SkillNames.OPENVPN,
+      SkillNames.EXEGOL,
+      SkillNames.NESSUS,
+      SkillNames.BURP,
+      SkillNames.BASH,
     ],
   },
 ];
 
 export const themeDisclaimers = {
   light: [
-    "Warning: Light mode emits a gazillion lumens of pure radiance!",
-    "Caution: Light mode ahead! Please don't try this at home.",
-    "Only trained professionals can handle this much brightness. Proceed with sunglasses!",
-    "Brace yourself! Light mode is about to make everything shine brighter than your future.",
-    "Flipping the switch to light mode... Are you sure your eyes are ready for this?",
+    "Mode clair activé : attention, ça éclaire fort.",
+    "Tu viens de passer côté lumière. Prévois les lunettes.",
+    "Mode clair : idéal pour relire un rapport sans plisser les yeux.",
+    "La lumière est activée. Ton écran vient de gagner +10 en visibilité.",
+    "Mode clair lancé. Simple, net, efficace.",
   ],
   dark: [
-    "Light mode? I thought you went insane... but welcome back to the dark side!",
-    "Switching to dark mode... How was life on the bright side?",
-    "Dark mode activated! Thanks you from the bottom of my heart, and my eyes too.",
-    "Welcome back to the shadows. How was life out there in the light?",
-    "Dark mode on! Finally, someone who understands true sophistication.",
+    "Retour au mode sombre. Beaucoup mieux pour les yeux.",
+    "Mode sombre activé : ambiance SOC de nuit.",
+    "Bienvenue dans l'ombre. Les logs sont plus lisibles comme ça.",
+    "Mode sombre : le choix naturel des gens qui vivent dans un terminal.",
+    "La lumière est coupée. On peut reprendre le travail sérieusement.",
   ],
 };
-

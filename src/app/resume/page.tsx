@@ -1,9 +1,9 @@
 import ResumeView from "./resume-view";
 
 export const metadata = {
-  title: "Résumé | Naresh Khatri",
+  title: "CV | Alix Marchal",
   description:
-    "Résumé of Naresh Khatri — Senior Full-Stack Engineer. View online or download the PDF.",
+    "CV d'Alix Marchal — Ingénieur Infrastructure, Réseau et Cybersécurité. Consultez ou téléchargez le CV au format PDF.",
 };
 
 export default function ResumePage() {

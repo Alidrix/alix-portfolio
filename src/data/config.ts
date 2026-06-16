@@ -1,45 +1,69 @@
 const config = {
-  title: "Naresh Khatri | Full-Stack Developer",
-  description: {
-    long: "Explore the portfolio of Naresh, a full-stack developer and creative technologist specializing in interactive web experiences, 3D animations, and innovative projects. Discover my latest work, including Coding Ducks, The Booking Desk, Ghostchat, and more. Let's build something amazing together!",
-    short:
-      "Discover the portfolio of Naresh, a full-stack developer creating interactive web experiences and innovative projects.",
-  },
-  keywords: [
-    "Naresh",
-    "portfolio",
-    "full-stack developer",
-    "creative technologist",
-    "web development",
-    "3D animations",
-    "interactive websites",
-    "Coding Ducks",
-    "The Booking Desk",
-    "Ghostchat",
-    "web design",
-    "GSAP",
-    "React",
-    "Next.js",
-    "Spline",
-    "Framer Motion",
-  ],
-  author: "Naresh Khatri",
-  email: "naresh.khatri2345@gmail.com",
-  site: "https://nareshkhatri.site",
+  title: "Alix Marchal | Ingénieur Infrastructure, Réseau & Cybersécurité",
 
-  // for github stars button
-  githubUsername: "naresh-khatri",
-  githubRepo: "3d-portfolio",
+  description: {
+    long: "Portfolio d'Alix Marchal, profil hybride en infrastructure, réseau et cybersécurité. Spécialisé dans la construction, la sécurisation et l’audit d’environnements techniques : systèmes Linux/Windows, Active Directory, Docker, VPN, virtualisation, firewalls, haute disponibilité, pentest interne/externe et restitution de rapports exploitables. Mon approche : comprendre les flux, tester avec méthode, prouver l’impact et transformer les constats techniques en plans d’action concrets.",
+    short:
+      "Portfolio d'Alix Marchal, ingénieur infrastructure, réseau et cybersécurité orienté sécurité offensive, défense opérationnelle et projets techniques.",
+  },
+
+  keywords: [
+    "Alix Marchal",
+    "portfolio cybersécurité",
+    "ingénieur cybersécurité",
+    "ingénieur infrastructure",
+    "ingénieur réseau",
+    "pentest",
+    "audit de sécurité",
+    "sécurité offensive",
+    "sécurité défensive",
+    "Active Directory",
+    "Linux",
+    "Windows Server",
+    "Docker",
+    "Docker Compose",
+    "WireGuard",
+    "OpenVPN",
+    "Fortinet",
+    "FortiGate",
+    "VMware",
+    "Proxmox",
+    "Nessus",
+    "Burp Suite",
+    "BloodHound",
+    "Exegol",
+    "Passbolt",
+    "K'RAPAS",
+    "haute disponibilité",
+    "infrastructure réseau",
+    "cybersecurity",
+    "network security",
+  ],
+
+  author: "Alix Marchal",
+
+  email: "pro.amarchal@proton.me",
+
+  // Domaine temporaire en local.
+  // À remplacer plus tard par ton URL Vercel ou ton domaine final.
+  site: "http://localhost:3000",
+
+  // Bouton GitHub stars dans le header.
+  // Repo cible recommandé quand tu pousseras ta version modifiée.
+  githubUsername: "Alidrix",
+  githubRepo: "alix-portfolio",
 
   get ogImg() {
     return this.site + "/assets/seo/og-image.png";
   },
+
   social: {
-    twitter: "https://x.com/nothotchaddi",
-    linkedin: "https://www.linkedin.com/in/naresh-khatri/",
-    instagram: "https://www.instagram.com/hotchaddi",
-    facebook: "https://www.facebook.com/HotChaddi/",
-    github: "https://github.com/Naresh-Khatri",
+    twitter: "",
+    linkedin: "https://www.linkedin.com/in/alix-marchal-2357711a1/",
+    instagram: "",
+    facebook: "",
+    github: "https://github.com/Alidrix",
   },
 };
+
 export { config };

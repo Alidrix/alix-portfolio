@@ -1,27 +1,33 @@
 "use client";
+
 import Image from "next/image";
-import React from "react";
-import {
-  ResponsiveDialog,
-  ResponsiveDialogContent,
-  ResponsiveDialogTrigger,
-} from "../ui/responsive-dialog";
-import { FloatingDock } from "../ui/floating-dock";
-import { ScrollArea } from "../ui/scroll-area";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { motion } from "motion/react";
+import React from "react";
+import { ArrowUpRight, Github } from "lucide-react";
 
 import projects, { Project } from "@/data/projects";
 import { SectionHeader } from "./section-header";
-
 import SectionWrapper from "../ui/section-wrapper";
+import { Button } from "../ui/button";
+import { ScrollArea } from "../ui/scroll-area";
+import {
+  ResponsiveDialog,
+  ResponsiveDialogContent,
+  ResponsiveDialogDescription,
+  ResponsiveDialogTitle,
+  ResponsiveDialogTrigger,
+} from "../ui/responsive-dialog";
 
 const ProjectsSection = () => {
   return (
-    <SectionWrapper id="projects" className="max-w-7xl mx-auto md:h-[130vh]">
-      <SectionHeader id="projects" title="Projects" />
-      <div className="grid grid-cols-1 md:grid-cols-3">
+    <SectionWrapper id="projects" className="mx-auto max-w-7xl px-6 py-24">
+      <SectionHeader
+        id="projects"
+        title="Projets"
+        desc="Quelques projets techniques représentatifs de mon parcours."
+      />
+
+      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}
@@ -32,108 +38,159 @@ const ProjectsSection = () => {
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <div className="flex items-center justify-center">
-      <ResponsiveDialog>
-        <ResponsiveDialogTrigger className="bg-transparent flex justify-center">
-          <div
-            className="relative w-[400px] h-auto rounded-lg overflow-hidden"
-            style={{ aspectRatio: "3/2" }}
-          >
+    <ResponsiveDialog>
+      <ResponsiveDialogTrigger asChild>
+        <button className="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950/70 text-left transition hover:border-white/30 hover:bg-slate-900/80">
+          <div className="relative aspect-video w-full overflow-hidden bg-slate-900">
             <Image
-              className="absolute w-full h-full top-0 left-0 hover:scale-[1.05] transition-all"
               src={project.src}
               alt={project.title}
-              width={300}
-              height={300}
+              fill
+              className="object-cover transition duration-500 group-hover:scale-105"
             />
-            <div className="absolute w-full h-1/2 bottom-0 left-0 bg-gradient-to-t from-background via-background/85 to-transparent pointer-events-none">
-              <div className="flex flex-col h-full items-start justify-end p-6">
-                <div className="text-lg text-left">{project.title}</div>
-                <div className="text-xs bg-primary text-primary-foreground rounded-lg w-fit px-2">
-                  {project.category}
-                </div>
-              </div>
-            </div>
           </div>
-        </ResponsiveDialogTrigger>
 
-        <ResponsiveDialogContent className="md:max-w-4xl md:h-[85vh] md:!flex md:flex-col md:overflow-hidden md:p-0 md:gap-0">
-          {/* Sticky header */}
-          <div className="shrink-0 border-b border-border bg-background/80 backdrop-blur-sm px-8 py-5">
-            <div className="flex items-center justify-between gap-4">
-              <div className="flex items-center gap-4 min-w-0">
-                <h4 className="font-display text-xl md:text-2xl font-bold text-foreground tracking-tight truncate">
-                  {project.title}
-                </h4>
-                <span className="shrink-0 text-[11px] uppercase tracking-widest text-muted-foreground border border-border rounded-full px-3 py-0.5">
-                  {project.category}
-                </span>
-              </div>
-              <div className="shrink-0 flex items-center gap-4">
-                {project.github && (
+          <div className="space-y-2 p-5">
+            <p className="text-sm font-semibold text-muted-foreground">
+              {project.category}
+            </p>
+
+            <h3 className="text-2xl font-black text-white">
+              {project.title}
+            </h3>
+
+            <p className="flex items-center gap-2 text-sm font-semibold text-muted-foreground">
+              Voir le détail
+              <ArrowUpRight className="h-4 w-4" />
+            </p>
+          </div>
+        </button>
+      </ResponsiveDialogTrigger>
+
+      <ResponsiveDialogContent className="max-w-5xl overflow-hidden border-white/10 bg-slate-950 p-0">
+        <ResponsiveDialogTitle className="sr-only">
+          {project.title}
+        </ResponsiveDialogTitle>
+
+        <ResponsiveDialogDescription className="sr-only">
+          {project.category}
+        </ResponsiveDialogDescription>
+
+        <div className="border-b border-white/10 bg-slate-950/95 p-6">
+          <p className="text-sm font-semibold text-muted-foreground">
+            {project.category}
+          </p>
+
+          <div className="mt-2 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+            <h3 className="text-3xl font-black text-white">
+              {project.title}
+            </h3>
+
+            <div className="flex flex-wrap gap-2">
+              {project.github && (
+                <Button asChild variant="outline" size="sm" className="gap-2">
                   <Link
                     href={project.github}
                     target="_blank"
-                    className="text-xs text-muted-foreground hover:text-foreground transition-colors underline underline-offset-2"
+                    rel="noopener noreferrer"
                   >
-                    Source
+                    <Github className="h-4 w-4" />
+                    Code source
                   </Link>
-                )}
-                <Link href={project.live} target="_blank">
-                  <button className="group flex items-center gap-2 bg-primary text-primary-foreground text-sm font-medium px-4 py-1.5 rounded-full hover:bg-primary/80 transition-colors">
-                    Visit
-                    <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </button>
-                </Link>
-              </div>
+                </Button>
+              )}
+
+              {project.live && (
+                <Button asChild size="sm" className="gap-2">
+                  <Link
+                    href={project.live}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Voir le projet
+                    <ArrowUpRight className="h-4 w-4" />
+                  </Link>
+                </Button>
+              )}
             </div>
           </div>
+        </div>
 
-          {/* Scrollable content */}
-          <ScrollArea className="flex-1" type="always" data-lenis-prevent>
-            <div className="px-8 py-8">
-              {/* Tech stack */}
-              <motion.div
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.4, delay: 0.1 }}
-                className="flex flex-col md:flex-row gap-6 md:gap-10 mb-10"
-              >
-                {project.skills.frontend?.length > 0 && (
-                  <div className="flex flex-col items-center md:items-start gap-2">
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium">
-                      Frontend
-                    </span>
-                    <FloatingDock items={project.skills.frontend} />
+        <ScrollArea className="max-h-[75vh]">
+          <div className="space-y-8 p-6">
+            {project.screenshots?.length > 0 && (
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                {project.screenshots.map((screenshot) => {
+                  const imagePath = screenshot.startsWith("/")
+                    ? screenshot
+                    : `/assets/projects-screenshots/${project.id}/${screenshot}`;
+
+                  return (
+                    <div
+                      key={screenshot}
+                      className="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-slate-900"
+                    >
+                      <Image
+                        src={imagePath}
+                        alt={`${project.title} — capture`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {project.skills.frontend?.length > 0 && (
+                <div>
+                  <h4 className="mb-3 text-lg font-black text-white">
+                    Interface web
+                  </h4>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.skills.frontend.map((skill) => (
+                      <span
+                        key={skill.title}
+                        className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm font-semibold text-white"
+                      >
+                        {skill.icon}
+                        {skill.title}
+                      </span>
+                    ))}
                   </div>
-                )}
-                {project.skills.backend?.length > 0 && (
-                  <div className="flex flex-col items-center md:items-start gap-2">
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground font-medium">
-                      Backend
-                    </span>
-                    <FloatingDock items={project.skills.backend} />
+                </div>
+              )}
+
+              {project.skills.backend?.length > 0 && (
+                <div>
+                  <h4 className="mb-3 text-lg font-black text-white">
+                    Infrastructure / services
+                  </h4>
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.skills.backend.map((skill) => (
+                      <span
+                        key={skill.title}
+                        className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm font-semibold text-white"
+                      >
+                        {skill.icon}
+                        {skill.title}
+                      </span>
+                    ))}
                   </div>
-                )}
-              </motion.div>
-
-              {/* Divider */}
-              <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent mb-10" />
-
-              {/* Project content */}
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-              >
-                {project.content}
-              </motion.div>
+                </div>
+              )}
             </div>
-          </ScrollArea>
 
-        </ResponsiveDialogContent>
-      </ResponsiveDialog>
-    </div>
+            <div className="prose prose-invert max-w-none">
+              {project.content}
+            </div>
+          </div>
+        </ScrollArea>
+      </ResponsiveDialogContent>
+    </ResponsiveDialog>
   );
 };
 

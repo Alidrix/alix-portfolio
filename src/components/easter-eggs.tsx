@@ -23,21 +23,21 @@ const EasterEggs = () => {
         "%cWhoa, look at you! 🕵️‍♂️\n" +
           "You seem to have discovered the secret console! 🔍\n" +
           "Want to see some magic? ✨\n" +
-          "Just type %cmy first name%c and hit enter! 🎩🐇",
+          "Tape %calix%c puis appuie sur Entrée ! 🎩🐇",
         //   "Just press the %c'n'%c key and watch the magic happen! 🪄",
         "color: #FFD700; font-size: 16px; font-weight: bold; background-color: black; padding: 10px; border-radius: 10px; margin-top:20px",
         "color: #00FF00; font-size: 16px; font-weight: bold; background-color: black; padding: 10px; border-radius: 10px; margin-top:20px",
         "color: #FFD700; font-size: 16px; font-weight: bold; background-color: black; padding: 10px; border-radius: 10px;"
       );
 
-      ["naresh", "Naresh", "NARESH"].forEach((name) => {
+      ["alix", "Alix", "ALIX"].forEach((name) => {
         // @ts-ignore
         if (Object.hasOwn(window, name)) return;
         Object.defineProperty(window, name, {
           get() {
             console.log(
               "%c✨ Abra Kadabra! ✨\n\n" +
-                "You just summoned the magic of Naresh! 🧙‍♂️\n" +
+                "Tu viens d’activer le mode Alix ! 🧙‍♂️\n" +
                 "What??? youre not impressed? Fine, but remember: With great power comes great responsibility! 💻⚡",
 
               "color: #FF4500; font-size: 18px; font-weight: bold; background-color: black; padding: 10px; border-radius: 10px; margin-top:10px"
