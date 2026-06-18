@@ -1,0 +1,8 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="900" fill="#020617"/>
+  <rect x="90" y="90" width="1420" height="720" rx="46" fill="#020617" stroke="#22c55e" stroke-opacity="0.55" stroke-width="3"/>
+  <text x="150" y="270" fill="#94a3b8" font-size="34" font-family="Arial, Helvetica, sans-serif" font-weight="800">EMPLACEMENT PRÊT POUR TON IMAGE</text>
+  <text x="150" y="410" fill="#ffffff" font-size="86" font-family="Arial, Helvetica, sans-serif" font-weight="900">Schéma infrastructure K'RAPAS</text>
+  <text x="150" y="510" fill="#cbd5e1" font-size="44" font-family="Arial, Helvetica, sans-serif" font-weight="800">Chemin cible : schema-infra.png</text>
+  <text x="150" y="662" fill="#22c55e" font-size="30" font-family="Arial, Helvetica, sans-serif" font-weight="800">Dépose ton fichier final dans public/assets/projects-screenshots/krapas-passbolt/</text>
+</svg>
