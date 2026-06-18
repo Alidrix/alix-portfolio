@@ -138,12 +138,18 @@ const PROJECT_SKILLS = {
   },
 };
 
+export type ProjectScreenshot = {
+  src: string;
+  alt: string;
+  fallback?: string;
+};
+
 export type Project = {
   id: string;
   category: string;
   title: string;
-  src: string;
-  screenshots: string[];
+  logo?: string;
+  screenshots: ProjectScreenshot[];
   skills: {
     frontend: Skill[];
     backend: Skill[];
@@ -158,8 +164,14 @@ const projects: Project[] = [
     id: "krapas-passbolt",
     category: "Cybersécurité / Infrastructure souveraine",
     title: "K'RAPAS — Passbolt CE auto-hébergé",
-    src: "/assets/projects-screenshots/krapas-passbolt/cover.svg",
-    screenshots: ["/assets/projects-screenshots/krapas-passbolt/detail.svg"],
+    logo: "/assets/project-logos/krapas.svg",
+    screenshots: [
+      {
+        src: "/assets/projects-screenshots/krapas-passbolt/schema-infra.jpg",
+        fallback: "/assets/projects-screenshots/krapas-passbolt/schema-infra-placeholder.svg",
+        alt: "Schéma réseau de l'infrastructure K'RAPAS",
+      },
+    ],
     live: "",
     github: "https://github.com/Alidrix/K-rapas_extension",
     skills: {
@@ -204,8 +216,8 @@ const projects: Project[] = [
     id: "infra-portable-pentest",
     category: "Pentest interne / Projet RNCP7",
     title: "Infrastructure portable de pentest interne",
-    src: "/assets/projects-screenshots/infra-portable-pentest/cover.svg",
-    screenshots: ["/assets/projects-screenshots/infra-portable-pentest/detail.svg"],
+    logo: "/assets/project-logos/pentest.svg",
+    screenshots: [],
     live: "",
     skills: {
       frontend: [],
@@ -249,8 +261,19 @@ const projects: Project[] = [
     id: "projet-fortinet",
     category: "Réseau / Firewalling",
     title: "Architecture sécurité Fortinet",
-    src: "/assets/projects-screenshots/projet-fortinet/cover.svg",
-    screenshots: ["/assets/projects-screenshots/projet-fortinet/detail.svg"],
+    logo: "/assets/project-logos/fortinet.svg",
+    screenshots: [
+      {
+        src: "/assets/projects-screenshots/projet-fortinet/schema-reseau.png",
+        fallback: "/assets/projects-screenshots/projet-fortinet/schema-reseau-placeholder.svg",
+        alt: "Schéma réseau Fortinet",
+      },
+      {
+        src: "/assets/projects-screenshots/projet-fortinet/matrice-flux.png",
+        fallback: "/assets/projects-screenshots/projet-fortinet/detail.svg",
+        alt: "Matrice de flux Fortinet",
+      },
+    ],
     live: "",
     skills: {
       frontend: [],
@@ -290,8 +313,7 @@ const projects: Project[] = [
     id: "haute-disponibilite",
     category: "Infrastructure / Continuité de service",
     title: "Haute disponibilité et redondance",
-    src: "/assets/projects-screenshots/haute-disponibilite/cover.svg",
-    screenshots: ["/assets/projects-screenshots/haute-disponibilite/detail.svg"],
+    screenshots: [],
     live: "",
     skills: {
       frontend: [],
@@ -331,8 +353,7 @@ const projects: Project[] = [
     id: "vpn-openvpn-wireguard",
     category: "VPN / Accès distant sécurisé",
     title: "OpenVPN & WireGuard",
-    src: "/assets/projects-screenshots/vpn-openvpn-wireguard/cover.svg",
-    screenshots: ["/assets/projects-screenshots/vpn-openvpn-wireguard/detail.svg"],
+    screenshots: [],
     live: "",
     skills: {
       frontend: [],
@@ -367,8 +388,7 @@ const projects: Project[] = [
     id: "puppet-fail2ban",
     category: "Automatisation / Durcissement",
     title: "Puppet & Fail2ban",
-    src: "/assets/projects-screenshots/puppet-fail2ban/cover.svg",
-    screenshots: ["/assets/projects-screenshots/puppet-fail2ban/detail.svg"],
+    screenshots: [],
     live: "",
     skills: {
       frontend: [],
@@ -401,8 +421,7 @@ const projects: Project[] = [
     id: "bitwarden-docker",
     category: "Gestion des secrets / Docker",
     title: "Gestionnaire de mots de passe conteneurisé",
-    src: "/assets/projects-screenshots/bitwarden-docker/cover.svg",
-    screenshots: ["/assets/projects-screenshots/bitwarden-docker/detail.svg"],
+    screenshots: [],
     live: "",
     skills: {
       frontend: [],
@@ -439,9 +458,8 @@ const projects: Project[] = [
     id: "portfolio-alix",
     category: "Portfolio / Présence professionnelle",
     title: "Portfolio Alix Marchal",
-    src: "/assets/projects-screenshots/portfolio-alix/cover.svg",
-    screenshots: ["/assets/projects-screenshots/portfolio-alix/detail.svg"],
-    live: "",
+    screenshots: [],
+    live: "https://alix-portfolio-livid.vercel.app/",
     github: "https://github.com/Alidrix/alix-portfolio",
     skills: {
       frontend: [

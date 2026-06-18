@@ -5,7 +5,7 @@ import Link from "next/link";
 import React from "react";
 import { ArrowUpRight, Github } from "lucide-react";
 
-import projects, { Project } from "@/data/projects";
+import projects, { Project, ProjectScreenshot } from "@/data/projects";
 import { SectionHeader } from "./section-header";
 import SectionWrapper from "../ui/section-wrapper";
 import { Button } from "../ui/button";
@@ -36,33 +36,98 @@ const ProjectsSection = () => {
   );
 };
 
+const ProjectLogo = ({
+  src,
+  title,
+  large = false,
+}: {
+  src?: string;
+  title: string;
+  large?: boolean;
+}) => {
+  if (!src) return null;
+
+  return (
+    <div
+      className={
+        large
+          ? "relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-white p-2 shadow-lg"
+          : "relative h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-white p-2"
+      }
+    >
+      <Image
+        src={src}
+        alt={`${title} — logo`}
+        fill
+        unoptimized={src.endsWith(".svg")}
+        className="object-contain p-1"
+      />
+    </div>
+  );
+};
+
+const ProjectScreenshotImage = ({
+  screenshot,
+  project,
+}: {
+  screenshot: ProjectScreenshot;
+  project: Project;
+}) => {
+  const [src, setSrc] = React.useState(screenshot.src);
+
+  React.useEffect(() => {
+    setSrc(screenshot.src);
+  }, [screenshot.src]);
+
+  return (
+    <figure className="space-y-3">
+      <div className="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-slate-900">
+        <Image
+          src={src}
+          alt={screenshot.alt || `${project.title} — visuel`}
+          fill
+          unoptimized={src.endsWith(".svg")}
+          className="object-cover"
+          onError={() => {
+            if (screenshot.fallback && src !== screenshot.fallback) {
+              setSrc(screenshot.fallback);
+            }
+          }}
+        />
+      </div>
+
+      <figcaption className="text-sm font-semibold text-muted-foreground">
+        {screenshot.alt}
+      </figcaption>
+    </figure>
+  );
+};
+
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <ResponsiveDialog>
       <ResponsiveDialogTrigger asChild>
-        <button className="group relative overflow-hidden rounded-2xl border border-white/10 bg-slate-950/70 text-left transition hover:border-white/30 hover:bg-slate-900/80">
-          <div className="relative aspect-video w-full overflow-hidden bg-slate-900">
-            <Image
-              src={project.src}
-              alt={project.title}
-              fill
-              unoptimized={project.src.endsWith(".svg")}
-              className="object-cover transition duration-500 group-hover:scale-105"
-            />
-          </div>
+        <button className="group relative min-h-[260px] overflow-hidden rounded-2xl border border-white/10 bg-slate-950/70 p-6 text-left transition hover:-translate-y-1 hover:border-white/30 hover:bg-slate-900/80">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.18),transparent_38%)] opacity-70 transition group-hover:opacity-100" />
 
-          <div className="space-y-2 p-5">
-            <p className="text-sm font-semibold text-muted-foreground">
-              {project.category}
-            </p>
+          <div className="relative flex h-full flex-col justify-between gap-8">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="text-sm font-semibold text-muted-foreground">
+                  {project.category}
+                </p>
 
-            <h3 className="text-2xl font-black text-white">
-              {project.title}
-            </h3>
+                <h3 className="mt-3 text-2xl font-black leading-tight text-white">
+                  {project.title}
+                </h3>
+              </div>
+
+              <ProjectLogo src={project.logo} title={project.title} />
+            </div>
 
             <p className="flex items-center gap-2 text-sm font-semibold text-muted-foreground">
               Voir le détail
-              <ArrowUpRight className="h-4 w-4" />
+              <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-1 group-hover:-translate-y-1" />
             </p>
           </div>
         </button>
@@ -78,14 +143,20 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </ResponsiveDialogDescription>
 
         <div className="border-b border-white/10 bg-slate-950/95 p-6">
-          <p className="text-sm font-semibold text-muted-foreground">
-            {project.category}
-          </p>
+          <div className="flex flex-col gap-5 md:flex-row md:items-start md:justify-between">
+            <div className="flex items-start gap-4">
+              <ProjectLogo src={project.logo} title={project.title} large />
 
-          <div className="mt-2 flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-            <h3 className="text-3xl font-black text-white">
-              {project.title}
-            </h3>
+              <div>
+                <p className="text-sm font-semibold text-muted-foreground">
+                  {project.category}
+                </p>
+
+                <h3 className="mt-2 text-3xl font-black text-white">
+                  {project.title}
+                </h3>
+              </div>
+            </div>
 
             <div className="flex flex-wrap gap-2">
               {project.github && (
@@ -121,26 +192,13 @@ const ProjectCard = ({ project }: { project: Project }) => {
           <div className="space-y-8 p-6">
             {project.screenshots?.length > 0 && (
               <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-                {project.screenshots.map((screenshot) => {
-                  const imagePath = screenshot.startsWith("/")
-                    ? screenshot
-                    : `/assets/projects-screenshots/${project.id}/${screenshot}`;
-
-                  return (
-                    <div
-                      key={screenshot}
-                      className="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-slate-900"
-                    >
-                      <Image
-                        src={imagePath}
-                        alt={`${project.title} — capture`}
-                        fill
-                        unoptimized={imagePath.endsWith(".svg")}
-                        className="object-cover"
-                      />
-                    </div>
-                  );
-                })}
+                {project.screenshots.map((screenshot) => (
+                  <ProjectScreenshotImage
+                    key={screenshot.src}
+                    screenshot={screenshot}
+                    project={project}
+                  />
+                ))}
               </div>
             )}
 
