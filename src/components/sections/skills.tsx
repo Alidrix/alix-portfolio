@@ -8,13 +8,11 @@ import { usePerfProfile } from "@/hooks/use-perf-profile";
 import { cn } from "@/lib/utils";
 
 /**
- * Tech-stack section.
+ * Section de la stack technique.
  *
- * On capable devices the skills live in the interactive 3D keyboard's keycaps,
- * so this is just a header and the section is tall (the keyboard scrubs through
- * it on scroll). When the 3D scene is disabled (low-end / reduced-motion), the
- * keyboard isn't there to convey the skills — so we render them as a real HTML
- * grid instead. Progressive enhancement: the content survives without WebGL.
+ * Sur les appareils compatibles, les compétences sont présentées par les
+ * touches du clavier 3D interactif. Si la scène 3D est désactivée, une grille
+ * HTML reprend les mêmes technologies afin de préserver le contenu.
  */
 const SkillsSection = () => {
   const { disable3D, ready } = usePerfProfile();
@@ -28,8 +26,8 @@ const SkillsSection = () => {
       >
         <SectionHeader
           id="skills"
-          title="Tech Stack"
-          desc="Tools I build with"
+          title="Stack technique"
+          desc="Technologies et outils que j'utilise"
           className="static mb-14"
         />
         <ul className="mx-auto grid w-full max-w-5xl grid-cols-2 gap-3 px-4 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 lg:grid-cols-5">
@@ -79,7 +77,11 @@ const SkillsSection = () => {
       id="skills"
       className="w-full h-screen md:h-[150dvh] pointer-events-none"
     >
-      <SectionHeader id="skills" title="Tech Stack" desc="(hint: press a key)" />
+      <SectionHeader
+        id="skills"
+        title="Stack technique"
+        desc="(indice : appuyer sur une touche)"
+      />
     </SectionWrapper>
   );
 };

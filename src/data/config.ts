@@ -19,7 +19,6 @@ const config = {
     "sécurité défensive",
     "Active Directory",
     "Linux",
-    "Windows Server",
     "Docker",
     "Docker Compose",
     "WireGuard",

@@ -48,7 +48,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     name: "active_directory",
     label: "Active Directory",
     shortDescription:
-      "Analyse des comptes, groupes, droits, GPO et chemins d'attaque en environnement Microsoft.",
+      "Analyse des comptes, groupes, droits, GPO et chemins d'attaque en environnement Active Directory.",
     color: "#38bdf8",
     icon: skillIcon(SkillNames.ACTIVE_DIRECTORY),
   },
@@ -98,7 +98,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     name: "fortigate",
     label: "FortiGate",
     shortDescription:
-      "Filtrage, VPN, segmentation, haute disponibilité, SD-WAN et politiques de sécurité.",
+      "Filtrage, VPN, segmentation réseau, haute disponibilité, SD-WAN et politiques de sécurité.",
     color: "#ef4444",
     icon: skillIcon(SkillNames.FORTIGATE),
   },
@@ -218,7 +218,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     name: "vercel",
     label: "Vercel",
     shortDescription:
-      "Déploiement web, preview deployments et publication de projets front-end.",
+      "Déploiement web, environnements de prévisualisation et publication de projets front-end.",
     color: "#ffffff",
     icon: skillIcon(SkillNames.VERCEL),
   },
