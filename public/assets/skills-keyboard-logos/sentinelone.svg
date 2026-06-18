@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title">
+  <title id="title">SentinelOne</title>
+  <rect width="120" height="120" rx="26" fill="#0f172a"/>
+  <circle cx="60" cy="60" r="38" fill="#A78BFA" opacity=".16"/>
+  <circle cx="60" cy="60" r="37" fill="none" stroke="#A78BFA" stroke-width="2" opacity=".65"/>
+  <text x="60" y="69" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="800" fill="#A78BFA">S1</text>
+</svg>

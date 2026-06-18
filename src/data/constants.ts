@@ -29,16 +29,8 @@ export type Skill = {
   icon: string;
 };
 
-const svgIcon = (label: string, color: string) =>
-  `data:image/svg+xml;utf8,${encodeURIComponent(`
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
-      <rect width="120" height="120" rx="26" fill="#0f172a"/>
-      <circle cx="60" cy="60" r="38" fill="${color}" opacity="0.16"/>
-      <text x="60" y="68" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800" fill="${color}">
-        ${label}
-      </text>
-    </svg>
-  `)}`;
+const skillIcon = (name: SkillNames) =>
+  `/assets/skills-keyboard-logos/${name}.svg`;
 
 export const SKILLS: Record<SkillNames, Skill> = {
   [SkillNames.LINUX]: {
@@ -48,7 +40,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Administration système, durcissement, services, supervision et diagnostic.",
     color: "#ffffff",
-    icon: svgIcon("LX", "#ffffff"),
+    icon: skillIcon(SkillNames.LINUX),
   },
 
   [SkillNames.ACTIVE_DIRECTORY]: {
@@ -58,7 +50,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Analyse des comptes, groupes, droits, GPO et chemins d'attaque en environnement Microsoft.",
     color: "#38bdf8",
-    icon: svgIcon("AD", "#38bdf8"),
+    icon: skillIcon(SkillNames.ACTIVE_DIRECTORY),
   },
 
   [SkillNames.DOCKER]: {
@@ -68,7 +60,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Conteneurisation, déploiement applicatif, isolation et maintien en condition opérationnelle.",
     color: "#2496ed",
-    icon: svgIcon("DK", "#2496ed"),
+    icon: skillIcon(SkillNames.DOCKER),
   },
 
   [SkillNames.DOCKER_COMPOSE]: {
@@ -78,7 +70,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Orchestration locale de services, stacks applicatives et environnements reproductibles.",
     color: "#2563eb",
-    icon: svgIcon("DC", "#2563eb"),
+    icon: skillIcon(SkillNames.DOCKER_COMPOSE),
   },
 
   [SkillNames.WIREGUARD]: {
@@ -88,7 +80,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Tunnels VPN modernes, accès distant sécurisé et liaisons site-à-site.",
     color: "#ef4444",
-    icon: svgIcon("WG", "#ef4444"),
+    icon: skillIcon(SkillNames.WIREGUARD),
   },
 
   [SkillNames.OPENVPN]: {
@@ -98,7 +90,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Déploiement VPN, certificats, routage et sécurisation des connexions distantes.",
     color: "#fb923c",
-    icon: svgIcon("VPN", "#fb923c"),
+    icon: skillIcon(SkillNames.OPENVPN),
   },
 
   [SkillNames.FORTIGATE]: {
@@ -108,7 +100,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Filtrage, VPN, segmentation, haute disponibilité, SD-WAN et politiques de sécurité.",
     color: "#ef4444",
-    icon: svgIcon("FGT", "#ef4444"),
+    icon: skillIcon(SkillNames.FORTIGATE),
   },
 
   [SkillNames.VMWARE]: {
@@ -118,7 +110,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Virtualisation, exploitation d'environnements serveur et continuité de service.",
     color: "#f97316",
-    icon: svgIcon("VM", "#f97316"),
+    icon: skillIcon(SkillNames.VMWARE),
   },
 
   [SkillNames.PROXMOX]: {
@@ -128,7 +120,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Virtualisation open source, laboratoires techniques, snapshots et environnements de test.",
     color: "#fb923c",
-    icon: svgIcon("PX", "#fb923c"),
+    icon: skillIcon(SkillNames.PROXMOX),
   },
 
   [SkillNames.NESSUS]: {
@@ -138,7 +130,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Scan de vulnérabilités, qualification des risques et priorisation des remédiations.",
     color: "#0ea5e9",
-    icon: svgIcon("NS", "#0ea5e9"),
+    icon: skillIcon(SkillNames.NESSUS),
   },
 
   [SkillNames.BURP]: {
@@ -148,7 +140,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Analyse web, interception HTTP, validation de vulnérabilités et preuves techniques.",
     color: "#f97316",
-    icon: svgIcon("BP", "#f97316"),
+    icon: skillIcon(SkillNames.BURP),
   },
 
   [SkillNames.BLOODHOUND]: {
@@ -158,7 +150,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Analyse Active Directory, chemins d'attaque, relations, privilèges et escalades possibles.",
     color: "#ef4444",
-    icon: svgIcon("BH", "#ef4444"),
+    icon: skillIcon(SkillNames.BLOODHOUND),
   },
 
   [SkillNames.EXEGOL]: {
@@ -168,7 +160,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Environnement de pentest conteneurisé, outillage offensif et reproductibilité.",
     color: "#a855f7",
-    icon: svgIcon("EX", "#a855f7"),
+    icon: skillIcon(SkillNames.EXEGOL),
   },
 
   [SkillNames.PASSBOLT]: {
@@ -178,7 +170,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Gestionnaire de mots de passe collaboratif, auto-hébergement et continuité de service.",
     color: "#22c55e",
-    icon: svgIcon("PB", "#22c55e"),
+    icon: skillIcon(SkillNames.PASSBOLT),
   },
 
   [SkillNames.SENTINELONE]: {
@@ -188,7 +180,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Culture EDR, protection endpoint, détection, investigation et réponse aux menaces.",
     color: "#a78bfa",
-    icon: svgIcon("S1", "#a78bfa"),
+    icon: skillIcon(SkillNames.SENTINELONE),
   },
 
   [SkillNames.INFOBLOX]: {
@@ -198,7 +190,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "DDI, DNS, DHCP, IPAM, gouvernance réseau et visibilité des ressources.",
     color: "#60a5fa",
-    icon: svgIcon("IB", "#60a5fa"),
+    icon: skillIcon(SkillNames.INFOBLOX),
   },
 
   [SkillNames.BASH]: {
@@ -208,7 +200,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Scripts d'automatisation, diagnostics système, sauvegardes et exploitation Linux.",
     color: "#84cc16",
-    icon: svgIcon("SH", "#84cc16"),
+    icon: skillIcon(SkillNames.BASH),
   },
 
   [SkillNames.GIT]: {
@@ -218,7 +210,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Versioning, branches, suivi des changements et gestion propre du code.",
     color: "#f97316",
-    icon: svgIcon("GIT", "#f97316"),
+    icon: skillIcon(SkillNames.GIT),
   },
 
   [SkillNames.VERCEL]: {
@@ -228,7 +220,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
     shortDescription:
       "Déploiement web, preview deployments et publication de projets front-end.",
     color: "#ffffff",
-    icon: svgIcon("VC", "#ffffff"),
+    icon: skillIcon(SkillNames.VERCEL),
   },
 };
 
