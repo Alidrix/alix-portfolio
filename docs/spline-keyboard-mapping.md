@@ -6,14 +6,15 @@ Ce document sert de référence pour remplacer les logos du clavier 3D Spline pa
 
 La scène `public/assets/skills-keyboard.spline` est un format propriétaire
 binaire dont les textures de touches ne peuvent pas être remplacées de manière
-fiable sans le projet source dans l'éditeur Spline.
+fiable par un script ou par substitution binaire. Aucun export runtime
+`skills-keyboard-alix.splinecode` valide n'a pu être généré sans ouvrir la scène
+dans l'éditeur Spline.
 
-Pour garantir que les visiteurs voient réellement la stack actuelle, la section
-Compétences utilise le clavier React/Tailwind accessible défini dans
-`src/components/sections/skills.tsx`. Le clavier historique de la scène Spline
-est masqué pendant cette section dans
-`src/components/animated-background.tsx`; il reste utilisé comme élément
-d'ambiance dans les autres sections.
+La section Compétences s'appuie donc exclusivement sur le vrai clavier 3D
+chargé par `src/components/animated-background.tsx`. Aucun clavier de
+substitution React/Tailwind n'est affiché. Tant que l'export manuel décrit
+ci-dessous n'est pas réalisé, les anciennes textures restent visibles dans la
+scène d'origine.
 
 ## Fichiers concernés
 
@@ -26,7 +27,9 @@ d'ambiance dans les autres sections.
 La scène actuelle reste volontairement chargée tant qu'un export
 `skills-keyboard-alix.splinecode` valide n'a pas été produit dans l'éditeur
 Spline. Le format source `.spline` étant propriétaire, il ne doit pas être
-modifié par remplacement binaire ou script non pris en charge.
+modifié par remplacement binaire ou script non pris en charge. Il ne faut pas
+modifier le chemin de scène dans le composant avant que cet export existe et
+ait été testé.
 
 ## Noms exacts des touches/objets Spline
 
