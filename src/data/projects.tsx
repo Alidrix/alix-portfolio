@@ -164,7 +164,7 @@ const projects: Project[] = [
     id: "krapas-passbolt",
     category: "Cybersécurité / Infrastructure souveraine",
     title: "K'RAPAS — Passbolt CE auto-hébergé",
-    logo: "/assets/project-logos/krapas.svg",
+    logo: "/assets/project-logos/krapas.png",
     screenshots: [
       {
         src: "/assets/projects-screenshots/krapas-passbolt/schema-infra.jpg",
@@ -216,7 +216,7 @@ const projects: Project[] = [
     id: "infra-portable-pentest",
     category: "Pentest interne / Projet RNCP7",
     title: "Infrastructure portable de pentest interne",
-    logo: "/assets/project-logos/pentest.svg",
+    logo: "/assets/project-logos/pentest.png",
     screenshots: [],
     live: "",
     skills: {
@@ -261,7 +261,7 @@ const projects: Project[] = [
     id: "projet-fortinet",
     category: "Réseau / Firewalling",
     title: "Architecture sécurité Fortinet",
-    logo: "/assets/project-logos/fortinet.svg",
+    logo: "/assets/project-logos/fortinet.png",
     screenshots: [
       {
         src: "/assets/projects-screenshots/projet-fortinet/schema-reseau.png",

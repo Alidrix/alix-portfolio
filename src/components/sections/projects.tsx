@@ -81,13 +81,13 @@ const ProjectScreenshotImage = ({
 
   return (
     <figure className="space-y-3">
-      <div className="relative aspect-video overflow-hidden rounded-xl border border-white/10 bg-slate-900">
+      <div className="relative min-h-[360px] overflow-hidden rounded-xl border border-white/10 bg-slate-900 md:min-h-[560px] xl:min-h-[680px]">
         <Image
           src={src}
           alt={screenshot.alt || `${project.title} — visuel`}
           fill
           unoptimized={src.endsWith(".svg")}
-          className="object-cover"
+          className="object-contain p-3"
           onError={() => {
             if (screenshot.fallback && src !== screenshot.fallback) {
               setSrc(screenshot.fallback);
@@ -133,7 +133,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         </button>
       </ResponsiveDialogTrigger>
 
-      <ResponsiveDialogContent className="max-w-5xl overflow-hidden border-white/10 bg-slate-950 p-0">
+      <ResponsiveDialogContent className="max-w-[96vw] overflow-hidden border-white/10 bg-slate-950 p-0 xl:max-w-7xl 2xl:max-w-[1500px]">
         <ResponsiveDialogTitle className="sr-only">
           {project.title}
         </ResponsiveDialogTitle>
@@ -188,10 +188,10 @@ const ProjectCard = ({ project }: { project: Project }) => {
           </div>
         </div>
 
-        <ScrollArea className="max-h-[75vh]">
+        <ScrollArea className="max-h-[82vh]">
           <div className="space-y-8 p-6">
             {project.screenshots?.length > 0 && (
-              <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+              <div className="grid grid-cols-1 gap-8">
                 {project.screenshots.map((screenshot) => (
                   <ProjectScreenshotImage
                     key={screenshot.src}
