@@ -348,6 +348,10 @@ const KeyboardScene = ({ maxDpr }: { maxDpr: number }) => {
     const kbd = splineApp.findObjectByName("keyboard");
 
     if (kbd) {
+      // La scène propriétaire conserve ses anciennes textures. Le clavier
+      // React de la section Compétences affiche la stack actuelle à sa place.
+      kbd.visible = activeSection !== "skills";
+
       rotateKeyboard = gsap.to(kbd.rotation, {
         y: Math.PI * 2 + kbd.rotation.y,
         duration: 10,

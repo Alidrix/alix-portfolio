@@ -2,6 +2,19 @@
 
 Ce document sert de référence pour remplacer les logos du clavier 3D Spline par les technologies principales du portfolio.
 
+## Implémentation active
+
+La scène `public/assets/skills-keyboard.spline` est un format propriétaire
+binaire dont les textures de touches ne peuvent pas être remplacées de manière
+fiable sans le projet source dans l'éditeur Spline.
+
+Pour garantir que les visiteurs voient réellement la stack actuelle, la section
+Compétences utilise le clavier React/Tailwind accessible défini dans
+`src/components/sections/skills.tsx`. Le clavier historique de la scène Spline
+est masqué pendant cette section dans
+`src/components/animated-background.tsx`; il reste utilisé comme élément
+d'ambiance dans les autres sections.
+
 ## Fichiers concernés
 
 - Scène actuelle : `public/assets/skills-keyboard.spline`
