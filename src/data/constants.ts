@@ -1,8 +1,6 @@
 export enum SkillNames {
   LINUX = "linux",
-  WINDOWS = "windows",
   ACTIVE_DIRECTORY = "active_directory",
-  DNS_DHCP = "dns_dhcp",
   DOCKER = "docker",
   DOCKER_COMPOSE = "docker_compose",
   WIREGUARD = "wireguard",
@@ -10,7 +8,6 @@ export enum SkillNames {
   FORTIGATE = "fortigate",
   VMWARE = "vmware",
   PROXMOX = "proxmox",
-  NGINX = "nginx",
   NESSUS = "nessus",
   BURP = "burp",
   BLOODHOUND = "bloodhound",
@@ -49,54 +46,34 @@ export const SKILLS: Record<SkillNames, Skill> = {
     name: "linux",
     label: "Linux",
     shortDescription:
-      "Administration, durcissement, services système, supervision et diagnostic.",
+      "Administration système, durcissement, services, supervision et diagnostic.",
     color: "#ffffff",
     icon: svgIcon("LX", "#ffffff"),
   },
 
-  [SkillNames.WINDOWS]: {
-    id: 2,
-    name: "windows",
-    label: "Windows Server",
-    shortDescription:
-      "Administration Windows Server, services d'entreprise et environnements hybrides.",
-    color: "#60a5fa",
-    icon: svgIcon("WIN", "#60a5fa"),
-  },
-
   [SkillNames.ACTIVE_DIRECTORY]: {
-    id: 3,
-    name: "active-directory",
+    id: 2,
+    name: "active_directory",
     label: "Active Directory",
     shortDescription:
-      "Comptes, groupes, droits, GPO, cartographie et analyse des chemins d'attaque.",
+      "Analyse des comptes, groupes, droits, GPO et chemins d'attaque en environnement Microsoft.",
     color: "#38bdf8",
     icon: svgIcon("AD", "#38bdf8"),
   },
 
-  [SkillNames.DNS_DHCP]: {
-    id: 4,
-    name: "dns-dhcp",
-    label: "DNS / DHCP",
-    shortDescription:
-      "Compréhension des flux, résolution de noms, adressage et dépendances réseau.",
-    color: "#22c55e",
-    icon: svgIcon("DNS", "#22c55e"),
-  },
-
   [SkillNames.DOCKER]: {
-    id: 5,
+    id: 3,
     name: "docker",
     label: "Docker",
     shortDescription:
-      "Conteneurisation, déploiement applicatif, isolation et maintien en condition.",
+      "Conteneurisation, déploiement applicatif, isolation et maintien en condition opérationnelle.",
     color: "#2496ed",
     icon: svgIcon("DK", "#2496ed"),
   },
 
   [SkillNames.DOCKER_COMPOSE]: {
-    id: 6,
-    name: "docker-compose",
+    id: 4,
+    name: "docker_compose",
     label: "Docker Compose",
     shortDescription:
       "Orchestration locale de services, stacks applicatives et environnements reproductibles.",
@@ -105,27 +82,27 @@ export const SKILLS: Record<SkillNames, Skill> = {
   },
 
   [SkillNames.WIREGUARD]: {
-    id: 7,
+    id: 5,
     name: "wireguard",
     label: "WireGuard",
     shortDescription:
       "Tunnels VPN modernes, accès distant sécurisé et liaisons site-à-site.",
-    color: "#88171a",
+    color: "#ef4444",
     icon: svgIcon("WG", "#ef4444"),
   },
 
   [SkillNames.OPENVPN]: {
-    id: 8,
+    id: 6,
     name: "openvpn",
     label: "OpenVPN",
     shortDescription:
-      "Déploiement d'accès VPN, certificats, routage et sécurité des connexions distantes.",
-    color: "#ea7e20",
+      "Déploiement VPN, certificats, routage et sécurisation des connexions distantes.",
+    color: "#fb923c",
     icon: svgIcon("VPN", "#fb923c"),
   },
 
   [SkillNames.FORTIGATE]: {
-    id: 9,
+    id: 7,
     name: "fortigate",
     label: "FortiGate",
     shortDescription:
@@ -135,7 +112,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
   },
 
   [SkillNames.VMWARE]: {
-    id: 10,
+    id: 8,
     name: "vmware",
     label: "VMware",
     shortDescription:
@@ -145,27 +122,17 @@ export const SKILLS: Record<SkillNames, Skill> = {
   },
 
   [SkillNames.PROXMOX]: {
-    id: 11,
+    id: 9,
     name: "proxmox",
     label: "Proxmox",
     shortDescription:
       "Virtualisation open source, laboratoires techniques, snapshots et environnements de test.",
-    color: "#e57000",
+    color: "#fb923c",
     icon: svgIcon("PX", "#fb923c"),
   },
 
-  [SkillNames.NGINX]: {
-    id: 12,
-    name: "nginx",
-    label: "Nginx",
-    shortDescription:
-      "Reverse-proxy, exposition de services, TLS, routage applicatif et durcissement.",
-    color: "#22c55e",
-    icon: svgIcon("NX", "#22c55e"),
-  },
-
   [SkillNames.NESSUS]: {
-    id: 13,
+    id: 10,
     name: "nessus",
     label: "Nessus",
     shortDescription:
@@ -175,8 +142,8 @@ export const SKILLS: Record<SkillNames, Skill> = {
   },
 
   [SkillNames.BURP]: {
-    id: 14,
-    name: "burp-suite",
+    id: 11,
+    name: "burp",
     label: "Burp Suite",
     shortDescription:
       "Analyse web, interception HTTP, validation de vulnérabilités et preuves techniques.",
@@ -185,17 +152,17 @@ export const SKILLS: Record<SkillNames, Skill> = {
   },
 
   [SkillNames.BLOODHOUND]: {
-    id: 15,
+    id: 12,
     name: "bloodhound",
     label: "BloodHound",
     shortDescription:
-      "Analyse Active Directory, chemins d'attaque, relations et privilèges.",
-    color: "#dc2626",
+      "Analyse Active Directory, chemins d'attaque, relations, privilèges et escalades possibles.",
+    color: "#ef4444",
     icon: svgIcon("BH", "#ef4444"),
   },
 
   [SkillNames.EXEGOL]: {
-    id: 16,
+    id: 13,
     name: "exegol",
     label: "Exegol",
     shortDescription:
@@ -205,7 +172,7 @@ export const SKILLS: Record<SkillNames, Skill> = {
   },
 
   [SkillNames.PASSBOLT]: {
-    id: 17,
+    id: 14,
     name: "passbolt",
     label: "Passbolt",
     shortDescription:
@@ -215,27 +182,27 @@ export const SKILLS: Record<SkillNames, Skill> = {
   },
 
   [SkillNames.SENTINELONE]: {
-    id: 18,
+    id: 15,
     name: "sentinelone",
     label: "SentinelOne",
     shortDescription:
-      "Culture EDR, protection endpoint, détection et réponse aux menaces.",
-    color: "#7c3aed",
+      "Culture EDR, protection endpoint, détection, investigation et réponse aux menaces.",
+    color: "#a78bfa",
     icon: svgIcon("S1", "#a78bfa"),
   },
 
   [SkillNames.INFOBLOX]: {
-    id: 19,
+    id: 16,
     name: "infoblox",
     label: "Infoblox",
     shortDescription:
       "DDI, DNS, DHCP, IPAM, gouvernance réseau et visibilité des ressources.",
-    color: "#3b82f6",
+    color: "#60a5fa",
     icon: svgIcon("IB", "#60a5fa"),
   },
 
   [SkillNames.BASH]: {
-    id: 20,
+    id: 17,
     name: "bash",
     label: "Bash",
     shortDescription:
@@ -245,17 +212,17 @@ export const SKILLS: Record<SkillNames, Skill> = {
   },
 
   [SkillNames.GIT]: {
-    id: 21,
+    id: 18,
     name: "git",
     label: "Git",
     shortDescription:
       "Versioning, branches, suivi des changements et gestion propre du code.",
-    color: "#f1502f",
+    color: "#f97316",
     icon: svgIcon("GIT", "#f97316"),
   },
 
   [SkillNames.VERCEL]: {
-    id: 22,
+    id: 19,
     name: "vercel",
     label: "Vercel",
     shortDescription:
@@ -294,11 +261,11 @@ export const EXPERIENCE: Experience[] = [
       SkillNames.DOCKER_COMPOSE,
       SkillNames.PASSBOLT,
       SkillNames.WIREGUARD,
-      SkillNames.NGINX,
       SkillNames.NESSUS,
       SkillNames.BURP,
       SkillNames.BASH,
       SkillNames.GIT,
+      SkillNames.VERCEL,
     ],
   },
 
@@ -311,18 +278,17 @@ export const EXPERIENCE: Experience[] = [
     description: [
       "Participation à des projets liés à l'infrastructure, au réseau et à la cybersécurité dans un environnement professionnel orienté solutions de sécurité.",
       "Montée en compétence sur les environnements système, réseau, virtualisation, VPN, firewalling, EDR et services d'entreprise.",
-      "Travaux autour d'Active Directory, DNS, DHCP, Fortinet, SentinelOne, Infoblox et architectures sécurisées.",
+      "Travaux autour d'Active Directory, Fortinet, SentinelOne, Infoblox et architectures sécurisées.",
       "Développement d'une culture offensive et défensive : compréhension des chemins d'attaque, durcissement, preuves techniques et restitution claire.",
     ],
     skills: [
       SkillNames.ACTIVE_DIRECTORY,
-      SkillNames.DNS_DHCP,
       SkillNames.FORTIGATE,
       SkillNames.SENTINELONE,
       SkillNames.INFOBLOX,
       SkillNames.VMWARE,
       SkillNames.PROXMOX,
-      SkillNames.WINDOWS,
+      SkillNames.BLOODHOUND,
       SkillNames.LINUX,
     ],
   },
