@@ -3,7 +3,6 @@ import {
   SiDocker,
   SiLinux,
   SiMariadb,
-  SiNginx,
   SiWireguard,
 } from "react-icons/si";
 import { Shield, Network, Server, Lock, Terminal, Router, FileText } from "lucide-react";
@@ -41,12 +40,6 @@ const PROJECT_SKILLS = {
     bg: "black",
     fg: "white",
     icon: <SiMariadb className={iconClass} />,
-  },
-  nginx: {
-    title: "Nginx / Reverse-proxy",
-    bg: "black",
-    fg: "white",
-    icon: <SiNginx className={iconClass} />,
   },
   wireguard: {
     title: "WireGuard",
@@ -141,7 +134,6 @@ const projects: Project[] = [
         PROJECT_SKILLS.docker,
         PROJECT_SKILLS.compose,
         PROJECT_SKILLS.mariadb,
-        PROJECT_SKILLS.nginx,
         PROJECT_SKILLS.wireguard,
         PROJECT_SKILLS.bash,
       ],
