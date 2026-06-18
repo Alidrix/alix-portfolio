@@ -4,13 +4,9 @@ import {
   SiLinux,
   SiMariadb,
   SiNginx,
-  SiTypescript,
-  SiNextdotjs,
-  SiTailwindcss,
   SiWireguard,
-  SiGit,
 } from "react-icons/si";
-import { Shield, Network, Server, Lock, Terminal, Database, Router, FileText } from "lucide-react";
+import { Shield, Network, Server, Lock, Terminal, Router, FileText } from "lucide-react";
 
 export type Skill = {
   title: string;
@@ -70,12 +66,6 @@ const PROJECT_SKILLS = {
     fg: "white",
     icon: <Shield className={iconClass} />,
   },
-  activeDirectory: {
-    title: "Active Directory",
-    bg: "black",
-    fg: "white",
-    icon: <Network className={iconClass} />,
-  },
   network: {
     title: "Réseau",
     bg: "black",
@@ -105,36 +95,6 @@ const PROJECT_SKILLS = {
     bg: "black",
     fg: "white",
     icon: <FileText className={iconClass} />,
-  },
-  database: {
-    title: "Base de données",
-    bg: "black",
-    fg: "white",
-    icon: <Database className={iconClass} />,
-  },
-  next: {
-    title: "Next.js",
-    bg: "black",
-    fg: "white",
-    icon: <SiNextdotjs className={iconClass} />,
-  },
-  typescript: {
-    title: "TypeScript",
-    bg: "black",
-    fg: "white",
-    icon: <SiTypescript className={iconClass} />,
-  },
-  tailwind: {
-    title: "Tailwind CSS",
-    bg: "black",
-    fg: "white",
-    icon: <SiTailwindcss className={iconClass} />,
-  },
-  git: {
-    title: "Git",
-    bg: "black",
-    fg: "white",
-    icon: <SiGit className={iconClass} />,
   },
 };
 
@@ -303,191 +263,6 @@ const projects: Project[] = [
             <li>Travail autour des VPN IPsec/SSL et des accès distants.</li>
             <li>Réflexion sur la haute disponibilité et la continuité de service.</li>
             <li>Production de livrables techniques exploitables.</li>
-          </ul>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: "haute-disponibilite",
-    category: "Infrastructure / Continuité de service",
-    title: "Haute disponibilité et redondance",
-    screenshots: [],
-    live: "",
-    skills: {
-      frontend: [],
-      backend: [
-        PROJECT_SKILLS.linux,
-        PROJECT_SKILLS.network,
-        PROJECT_SKILLS.ha,
-        PROJECT_SKILLS.nginx,
-        PROJECT_SKILLS.bash,
-      ],
-    },
-    get content() {
-      return (
-        <div className="space-y-4">
-          <p>
-            Mise en place d'une logique de continuité de service avec redondance
-            réseau et applicative.
-          </p>
-
-          <p>
-            Le projet met l'accent sur la disponibilité, la bascule contrôlée et
-            la documentation des scénarios de panne.
-          </p>
-
-          <ul>
-            <li>Conception actif/passif et logique d'IP virtuelle.</li>
-            <li>Tests de bascule et validation des comportements attendus.</li>
-            <li>Documentation des procédures de reprise.</li>
-            <li>Approche orientée exploitation et maintenabilité.</li>
-          </ul>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: "vpn-openvpn-wireguard",
-    category: "VPN / Accès distant sécurisé",
-    title: "OpenVPN & WireGuard",
-    screenshots: [],
-    live: "",
-    skills: {
-      frontend: [],
-      backend: [
-        PROJECT_SKILLS.linux,
-        PROJECT_SKILLS.vpn,
-        PROJECT_SKILLS.wireguard,
-        PROJECT_SKILLS.network,
-        PROJECT_SKILLS.bash,
-      ],
-    },
-    get content() {
-      return (
-        <div className="space-y-4">
-          <p>
-            Mise en place de solutions VPN pour sécuriser les accès distants et
-            interconnecter des environnements techniques.
-          </p>
-
-          <ul>
-            <li>Configuration de tunnels VPN et gestion des routes.</li>
-            <li>Prise en compte des flux, des règles firewall et de l'exposition réseau.</li>
-            <li>Tests de connectivité, diagnostic et correction des problèmes d'accès.</li>
-            <li>Utilisation dans des contextes de lab, d'exploitation et de pentest.</li>
-          </ul>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: "puppet-fail2ban",
-    category: "Automatisation / Durcissement",
-    title: "Puppet & Fail2ban",
-    screenshots: [],
-    live: "",
-    skills: {
-      frontend: [],
-      backend: [
-        PROJECT_SKILLS.linux,
-        PROJECT_SKILLS.bash,
-        PROJECT_SKILLS.reporting,
-      ],
-    },
-    get content() {
-      return (
-        <div className="space-y-4">
-          <p>
-            Projet orienté automatisation et durcissement de systèmes Linux avec
-            déploiement de règles de protection et de configuration.
-          </p>
-
-          <ul>
-            <li>Automatisation de configurations système.</li>
-            <li>Déploiement et adaptation de Fail2ban.</li>
-            <li>Réduction de l'exposition aux tentatives d'authentification répétées.</li>
-            <li>Documentation des choix techniques et des bénéfices sécurité.</li>
-          </ul>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: "bitwarden-docker",
-    category: "Gestion des secrets / Docker",
-    title: "Gestionnaire de mots de passe conteneurisé",
-    screenshots: [],
-    live: "",
-    skills: {
-      frontend: [],
-      backend: [
-        PROJECT_SKILLS.linux,
-        PROJECT_SKILLS.docker,
-        PROJECT_SKILLS.compose,
-        PROJECT_SKILLS.nginx,
-        PROJECT_SKILLS.database,
-        PROJECT_SKILLS.bash,
-      ],
-    },
-    get content() {
-      return (
-        <div className="space-y-4">
-          <p>
-            Déploiement d'un gestionnaire de mots de passe en environnement
-            conteneurisé, avec réflexion sur l'exposition, la sauvegarde et
-            l'exploitation au quotidien.
-          </p>
-
-          <ul>
-            <li>Déploiement Docker et structuration des volumes.</li>
-            <li>Reverse-proxy, TLS et exposition contrôlée.</li>
-            <li>Sauvegarde des données et logique de restauration.</li>
-            <li>Approche orientée sécurité des accès et des secrets.</li>
-          </ul>
-        </div>
-      );
-    },
-  },
-
-  {
-    id: "portfolio-alix",
-    category: "Portfolio / Présence professionnelle",
-    title: "Portfolio Alix Marchal",
-    screenshots: [],
-    live: "https://alix-portfolio-livid.vercel.app/",
-    github: "https://github.com/Alidrix/alix-portfolio",
-    skills: {
-      frontend: [
-        PROJECT_SKILLS.typescript,
-        PROJECT_SKILLS.next,
-        PROJECT_SKILLS.tailwind,
-      ],
-      backend: [PROJECT_SKILLS.git],
-    },
-    get content() {
-      return (
-        <div className="space-y-4">
-          <p>
-            Refonte complète de mon ancien portfolio vers une version plus moderne,
-            plus claire et plus adaptée à une consultation par des recruteurs.
-          </p>
-
-          <p>
-            L'objectif est de présenter mon profil, mes compétences, mes projets
-            cyber/infra et mon évolution professionnelle dans une interface plus
-            professionnelle et maintenable.
-          </p>
-
-          <ul>
-            <li>Personnalisation d'un portfolio Next.js / TypeScript.</li>
-            <li>Traduction complète en français.</li>
-            <li>Mise en avant des projets infrastructure, réseau et cybersécurité.</li>
-            <li>Préparation au déploiement GitHub puis Vercel.</li>
           </ul>
         </div>
       );
